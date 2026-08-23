@@ -156,6 +156,9 @@ func (d *Desktop) build(ctx context.Context) {
 	d.accountButton = widget.NewButton(d.tr("login"), d.accountAction)
 	d.urlEntry = widget.NewEntry()
 	d.urlEntry.SetPlaceHolder(d.tr("link_placeholder"))
+	d.urlEntry.OnSubmitted = func(string) {
+		d.addTask()
+	}
 	d.addButton = widget.NewButton(d.tr("add_download"), d.addTask)
 	removeAll := widget.NewButton(d.tr("remove_all"), d.removeAllTasks)
 	d.taskHint = widget.NewLabel(d.tr("task_hint"))

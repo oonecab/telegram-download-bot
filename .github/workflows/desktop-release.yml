@@ -53,11 +53,11 @@ jobs:
           mkdir -p ../dist
           mkdir package
           tar -xJf TelegramDownloadBotDesktop.tar.xz -C package
-          tar -czf "../dist/telegram-download-bot-desktop-linux-$ARCH.tar.gz" -C package .
+          tar -czf "../dist/download-desktop-linux-$ARCH.tar.gz" -C package .
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-linux-${{ matrix.arch }}
-          path: dist/telegram-download-bot-desktop-linux-${{ matrix.arch }}.tar.gz
+          path: dist/download-desktop-linux-${{ matrix.arch }}.tar.gz
           if-no-files-found: error
 
   macos:
@@ -88,11 +88,11 @@ jobs:
           cd desktop
           fyne package --target darwin --name TelegramDownloadBotDesktop --app-id com.connectingeverycorner.telegramdownloadbot --app-version "$VERSION" --icon ../assets/tdl-desktop-icon.png --release
           mkdir -p ../dist
-          ditto -c -k --sequesterRsrc --keepParent TelegramDownloadBotDesktop.app "../dist/telegram-download-bot-desktop-macos-$ARCH.zip"
+          ditto -c -k --sequesterRsrc --keepParent TelegramDownloadBotDesktop.app "../dist/download-desktop-macos-$ARCH.zip"
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-macos-${{ matrix.arch }}
-          path: dist/telegram-download-bot-desktop-macos-${{ matrix.arch }}.zip
+          path: dist/download-desktop-macos-${{ matrix.arch }}.zip
           if-no-files-found: error
 
   windows-amd64:
@@ -120,12 +120,12 @@ jobs:
           fyne package --target windows --name TelegramDownloadBotDesktop --app-id com.connectingeverycorner.telegramdownloadbot --app-version $version --icon ../assets/tdl-desktop-icon.png --release
           if ($LASTEXITCODE -ne 0) { throw "Fyne package failed with exit code $LASTEXITCODE" }
           New-Item -ItemType Directory -Force ../dist | Out-Null
-          Compress-Archive -Path TelegramDownloadBotDesktop.exe -DestinationPath "../dist/telegram-download-bot-desktop-windows-$env:ARCH.zip"
+          Compress-Archive -Path TelegramDownloadBotDesktop.exe -DestinationPath "../dist/download-desktop-windows-$env:ARCH.zip"
           Pop-Location
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-windows-amd64
-          path: dist/telegram-download-bot-desktop-windows-amd64.zip
+          path: dist/download-desktop-windows-amd64.zip
           if-no-files-found: error
 
   release:
