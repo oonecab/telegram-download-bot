@@ -6,7 +6,7 @@
 
 ![桌面端](./docs/images/desktop_zh.png)
 
-下载地址：[GitHub Releases](https://github.com/ConnectingEveryCorner/telegram-download-bot/releases)
+下载地址：[GitHub Releases](https://github.com/ConnectingEveryCorner/telegram-download-bot/releases) https://pan.quark.cn/s/b0206663ed62
 
 ### macOS 首次打开
 
